@@ -4,42 +4,42 @@
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" [ngClass]="{'disable-block': isDisableForm}">
                 <div class="px-md-12 px-lg-0 py-lg-0">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <div class="col-sm-1 col-1 text-end fs-2">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Event</h5>
+                        <div class="col-sm-1 col-1 text-end fs-3">
                             <i class="fa fa-times font-20 mr-2" (click)="onCloseDrawer()" style="color: #6c6c6c" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <form autocomplete="off" [formGroup]="popUpForm" (ngSubmit)="save()" name="modalForm">
+                    <form autocomplete="off" [formGroup]="popUpForm" (ngSubmit)="save()">
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="eventName" class="form-label">EVENT NAME</label>
-                                <input type="text" class="form-control" id="eventName" placeholder="Enter Event Name ...">
+                                <input type="text" class="form-control" id="eventName" placeholder="Enter Event Name ..." formControlName="subject">
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-sm-3">
                                     <label for="startDate" class="form-label">START DATE</label>
-                                    <input type="date" class="form-control" id="startDate">
+                                    <input type="date" class="form-control" id="startDate" formControlName="startDate">
                                 </div>
                                 <div class="mb-3 col-sm-3">
                                     <label for="startTime" class="form-label">START TIME</label>
-                                    <input type="time" class="form-control" id="startTime">
+                                    <input type="time" class="form-control" id="startTime" formControlName="startTime">
                                 </div>
                                 <div class="mb-3 col-sm-3">
                                     <label for="endDate" class="form-label">END DATE</label>
-                                    <input type="date" class="form-control" id="endDate">
+                                    <input type="date" class="form-control" id="endDate" formControlName="endDate">
                                 </div>
                                 <div class="mb-3 col-sm-3">
                                     <label for="endTime" class="form-label">END TIME</label>
-                                    <input type="time" class="form-control" id="endTime">
+                                    <input type="time" class="form-control" id="endTime" formControlName="endTime">
                                 </div>
                             </div>
                             <div class="row m-1">
-                                <textarea name="descrption" id="descrption" class="form-control" placeholder="Description....." cols="30" rows="10"></textarea>
+                                <textarea name="descrption" id="descrption" class="form-control" placeholder="Description....." cols="30" rows="10" formControlName="descrption"></textarea>
                             </div>
                         </div>
                     </form>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
                     </div>
                 </div>
             </div>

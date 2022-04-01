@@ -140,7 +140,6 @@ scheduleData: Object[] = [
   public selectedDate: Date = new Date(2018, 1, 1);
   public eventSettings: EventSettingsModel = {
     dataSource: this.scheduleData
-   
   };
   public showPromoModal!: boolean;
   public startDate!: Date;
@@ -150,11 +149,11 @@ scheduleData: Object[] = [
   //This is for print the calendar start
   public onActionBegin(args: any): void {
     if (args.requestType === 'toolbarItemRendering') {
-      const exportItem: any = {
+      const printItem: any = {
         align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-print',
         text: 'Print', cssClass: 'e-excel-export', click: this.onPrintClick.bind(this)
       };
-      args.items.push(exportItem);
+      args.items.push(printItem);
     }
   }
 

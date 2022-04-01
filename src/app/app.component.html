@@ -1,4 +1,4 @@
-<div class="row d-flex m-3">
+<div class="row d-flex">
   <div class="col-sm-2">
     <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'moment'">Moment</button>
   </div>
@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<div class="m-3">
+<div class="">
   <ng-container *ngIf="currentSelected === 'moment'">
     <app-moment-js></app-moment-js>
   </ng-container>

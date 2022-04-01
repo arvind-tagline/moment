@@ -8,14 +8,9 @@ import { ScheduleComponent } from '@syncfusion/ej2-angular-schedule';
 })
 export class SyncfusionComponent implements OnInit {
 
- public currentSelected = '';
-  
+  public currentSelected = '';
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-
-  
-
+  ngOnInit(): void { }
 }
