@@ -189,13 +189,13 @@ scheduleData: Object[] = [
       args.element.style.backgroundColor = categoryColor;
     }
   }
-  editor(): void {
-    let cellData: Object = {
-      startTime: new Date(2018, 1, 15, 10, 0),
-      endTime: new Date(2018, 1, 15, 11, 0),
-    };
-    this.scheduleObj.openEditor(cellData, 'Add');
-  }
+  // editor(): void {
+  //   let cellData: Object = {
+  //     startTime: new Date(2018, 1, 15, 10, 0),
+  //     endTime: new Date(2018, 1, 15, 11, 0),
+  //   };
+  //   this.scheduleObj.openEditor(cellData, 'Add');
+  // }
 
   onSelectCell(args: any): void {
     this.showPromoModal = true;
@@ -203,33 +203,39 @@ scheduleData: Object[] = [
     console.log('F this.showPromoModal', this.showPromoModal)
   }
 
-  public onDateChange(args: any): void {
-    if (!isNullOrUndefined(args.event)) {
-      if (args.element.id === "StartTime") {
-        this.startDate = args.value;
-      } else if (args.element.id === "EndTime") {
-        this.endDate = args.value;
-      }
-    }
-  }
+  // public onDateChange(args: any): void {
+  //   if (!isNullOrUndefined(args.event)) {
+  //     if (args.element.id === "StartTime") {
+  //       this.startDate = args.value;
+  //     } else if (args.element.id === "EndTime") {
+  //       this.endDate = args.value;
+  //     }
+  //   }
+  // }
 
-  public startDateParser(data: string): any {
-    if (isNullOrUndefined(this.startDate) && !isNullOrUndefined(data)) {
-      return new Date(data);
-    } else if (!isNullOrUndefined(this.startDate)) {
-      return new Date(this.startDate);
-    }
-  }
-  public endDateParser(data: string): any {
-    if (isNullOrUndefined(this.endDate) && !isNullOrUndefined(data)) {
-      return new Date(data);
-    } else if (!isNullOrUndefined(this.endDate)) {
-      return new Date(this.endDate);
-    }
-  }
+  // public startDateParser(data: string): any {
+  //   if (isNullOrUndefined(this.startDate) && !isNullOrUndefined(data)) {
+  //     return new Date(data);
+  //   } else if (!isNullOrUndefined(this.startDate)) {
+  //     return new Date(this.startDate);
+  //   }
+  // }
+  // public endDateParser(data: string): any {
+  //   if (isNullOrUndefined(this.endDate) && !isNullOrUndefined(data)) {
+  //     return new Date(data);
+  //   } else if (!isNullOrUndefined(this.endDate)) {
+  //     return new Date(this.endDate);
+  //   }
+  // }
+
   onSelect(args: any): void{
     console.log('args', args)
     this.showPromoModal = true;
-    console.log('S this.showPromoModal', this.showPromoModal)
+  }
+
+  onShowDrawer(e: any) {
+    this.showPromoModal = false;
+    // this.deletePromoId = undefined;
+    // this.promo = {};
   }
 }

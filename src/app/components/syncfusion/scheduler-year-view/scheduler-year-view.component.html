@@ -6,7 +6,7 @@
         <e-view option='TimelineYear' displayName='Horizontal Timeline Year' colorField="CategoryColor" isSelected=true>
         </e-view>
     </e-views>
-    <ng-template #editorTemplate let-data>
+    <!-- <ng-template #editorTemplate let-data>
         <table *ngIf="data != undefined" class="custom-event-editor" width="100%" cellpadding="5">
             <tbody>
                 <tr>
@@ -50,6 +50,6 @@
                 </tr>
             </tbody>
         </table>
-    </ng-template>
+    </ng-template> -->
 </ejs-schedule>
-<app-modal-form *ngIf="showPromoModal" (showModal)="showPromoModal"></app-modal-form>
+<app-modal-form *ngIf="showPromoModal" (showModal)="showPromoModal" (showDrawer)="onShowDrawer($event)"></app-modal-form>

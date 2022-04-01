@@ -57,7 +57,7 @@
             </div>
         </ng-template>
     </ejs-schedule>
-    <app-modal-form *ngIf="showPromoModal" (showDrawer)="onShowDrawer($event)"></app-modal-form>
+    <app-modal-form *ngIf="showPromoModal" (showModal)="showPromoModal" (showDrawer)="onShowDrawer($event)"></app-modal-form>
 </div> 
 
 <!-- <div class="control-section">

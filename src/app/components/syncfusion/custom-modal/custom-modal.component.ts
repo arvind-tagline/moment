@@ -156,11 +156,12 @@ export class CustomModalComponent implements OnInit {
 
   //modal testing
   onShowDrawer(e:any) {
-    this.showPromoModal = !e;
+    this.showPromoModal = false;
+    // this.showPromoModal = !e;
+    // console.log('first', this.showPromoModal = false)
     // this.deletePromoId = undefined;
     // this.promo = {};
   }
-
   // onPopupOpen(args: any) {
   //   if (args.type === 'QuickInfo') {
   //     const dialogObj = args.element.ej2_instances[0];
@@ -173,6 +174,7 @@ export class CustomModalComponent implements OnInit {
   //  public onChange(args: any): void {
   //   this.scheduleObj.eventSettings.editFollowingEvents = args.checked;
   //  }
+  
   onSelectCell(args: any): void {
     if(!args){
     this.showPromoModal = true;
@@ -180,6 +182,7 @@ export class CustomModalComponent implements OnInit {
       console.log('F this.showPromoModal', this.showPromoModal)
     }
   }
+  
   onSelect(args: any): void {
     console.log('args', args)
     this.showPromoModal = true;

@@ -1,6 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
+import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+import { ClosePopupService } from 'src/app/Service/close-popup.service';
 
 @Component({
   selector: 'app-modal-form',
@@ -11,30 +14,41 @@ export class ModalFormComponent implements OnInit {
 
   @Input() showModal!: boolean;
   public isDecidePopup: boolean = false;
+  @Output() showDrawer:any = new EventEmitter<any>();
   public isDisableForm: boolean = false;
   public showPromoModal!: boolean;
   public startDate!: Date;
   public endDate!: Date;
   public statusData: string[] = ['New', 'Requested', 'Confirmed'];
-
+  public popUpForm!:FormGroup;
   @ViewChild("modalForm", { static: false }) ngForm!: NgForm;
 
-  constructor() { }
-
+  constructor(private colsePopup:ClosePopupService) { }
+  
   ngOnInit(): void {
+    this.colsePopup.disablePromoObservable$.subscribe((value: boolean) => {
+      console.log(`value`, value);
+      this.isDisableForm = value;
+    })
   }
+  
+  
 
 
-  showDecidePopup(showDecidePopup:any) {
-    this.isDecidePopup = true;
+  // showDecidePopup(showDecidePopup:any) {
+  //   this.isDecidePopup = true;
+  // }
+
+  public save() {
+    
   }
 
   onCloseDrawer() {
-    if (this.isDisableForm) {
+    if (!this.isDisableForm) {
       // $("#sidebar").addClass("active required-filter-opacity");
       this.showModal = false;
-      // this.showDrawer.emit(this.showModal);
-      // this.promoService.disablePromo = false;
+      this.showDrawer.emit(this.showModal);
+      this.colsePopup.disablePromo = false;
     }
   }
   public startDateParser(data: string): any {
