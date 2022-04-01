@@ -144,14 +144,13 @@ scheduleData: Object[] = [
   public showPromoModal!: boolean;
   public startDate!: Date;
   public endDate!: Date;
-  public statusData: string[] = ['New', 'Requested', 'Confirmed'];
 
   //This is for print the calendar start
   public onActionBegin(args: any): void {
     if (args.requestType === 'toolbarItemRendering') {
       const printItem: any = {
         align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-print',
-        text: 'Print', cssClass: 'e-excel-export', click: this.onPrintClick.bind(this)
+        text: 'Print', cssClass: 'e-print', click: this.onPrintClick.bind(this)
       };
       args.items.push(printItem);
     }

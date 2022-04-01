@@ -26,6 +26,7 @@
     "@syncfusion/ej2-angular-inputs": "^19.4.52",
     "@syncfusion/ej2-angular-navigations": "^19.4.56",
     "@syncfusion/ej2-angular-schedule": "^19.4.55",
+    "@syncfusion/ej2-angular-splitbuttons": "^19.4.52",
     "@syncfusion/ej2-base": "^19.4.52",
     "bootstrap": "^5.1.3",
     "moment": "^2.29.1",

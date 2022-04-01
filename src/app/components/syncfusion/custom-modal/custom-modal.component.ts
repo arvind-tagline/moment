@@ -68,12 +68,14 @@ export class CustomModalComponent implements OnInit {
   }
 
   public getFormData(e: any): void {
+    console.log('e :>> ', e);
     const startDateAndTime = `${e.startDate} ${e.startTime}`;
     const endDateAndTime = `${e.endDate} ${e.endTime}`;
     const formData = {
       Id: this.scheduleData.length + 1,
       Subject: e.subject,
       descrption: e.descrption,
+      CategoryColor:e.colorCode,
       StartTime: new Date(startDateAndTime),
       EndTime: new Date(endDateAndTime),
     }
@@ -85,5 +87,22 @@ export class CustomModalComponent implements OnInit {
 
   public onSelect(args: any): void {
     this.showPromoModal = true;
+  }
+
+  public onPrintIconClick(): void {
+    this.scheduleObj.print();
+  }
+  public onActionBegin(args: any): void {
+    if (args.requestType === "toolbarItemRendering") {
+      const exportItem: any = {
+        align: "Right",
+        showTextOn: "Both",
+        prefixIcon: "e-icons e-print",
+        text: "Print",
+        cssClass: "e-print",
+        click: this.onPrintIconClick.bind(this)
+      };
+      args.items.push(exportItem);
+    }
   }
 }

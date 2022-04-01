@@ -19,6 +19,7 @@ import { ButtonModule, CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
 import { ContextMenuModule, TreeViewModule } from '@syncfusion/ej2-angular-navigations';
 import { DragAndDropComponent } from './components/syncfusion/drag-and-drop/drag-and-drop.component';
 import { CustomModalComponent } from './components/syncfusion/custom-modal/custom-modal.component';
+import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
 
 
 
@@ -48,7 +49,8 @@ import { CustomModalComponent } from './components/syncfusion/custom-modal/custo
     ContextMenuModule,
     TreeViewModule,
     DateTimePickerModule,
-    CheckBoxModule
+    CheckBoxModule,
+    DropDownButtonModule
   ],
   providers: [
     PrintService,

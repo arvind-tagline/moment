@@ -10,20 +10,21 @@ import { ClosePopupService } from 'src/app/Service/close-popup.service';
 export class ModalFormComponent implements OnInit {
 
   @Input() showModal!: boolean;
-  public isDecidePopup: boolean = false;
   @Output() showDrawer: any = new EventEmitter<any>();
   @Output() formDate: any = new EventEmitter<any>();
+  public isDecidePopup: boolean = false;
   public teamFormData: any;
   public isDisableForm: boolean = false;
   public showPromoModal!: boolean;
-  public startDate!: Date;
-  public endDate!: Date;
-  public statusData: string[] = ['New', 'Requested', 'Confirmed'];
   public popUpForm!:FormGroup;
-
+  public colorCodes = [
+    '#eb4034','#9c362f','#dbaf46','#e3a30b',
+    '#aaed53','#8bf007'
+  ];
   constructor(private colsePopup: ClosePopupService,private fb:FormBuilder) {
     this.popUpForm = this.fb.group({
       subject: '',
+      colorCode:'',
       startDate: '',
       startTime: '',
       endDate: '',

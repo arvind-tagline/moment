@@ -6,14 +6,30 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Add Event</h5>
                         <div class="col-sm-1 col-1 text-end fs-3">
-                            <i class="fa fa-times font-20 mr-2" (click)="onCloseDrawer()" style="color: #6c6c6c" aria-hidden="true"></i>
+                            <i class="fa fa-times font-20 mr-2" (click)="onCloseDrawer()" style="color: #6c6c6c"
+                                aria-hidden="true"></i>
                         </div>
                     </div>
                     <form autocomplete="off" [formGroup]="popUpForm" (ngSubmit)="save()">
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="eventName" class="form-label">EVENT NAME</label>
-                                <input type="text" class="form-control" id="eventName" placeholder="Enter Event Name ..." formControlName="subject">
+                                <div class="row d-flex justify-content-between">
+                                    <div class="col-sm-6">
+                                        <label for="eventName" class="form-label">EVENT NAME</label>
+                                    </div>
+                                    <div class="col-sm-6 text-end">
+                                        <label for="favcolor" class="text-end">Add Background Color</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-11">
+                                        <input type="text" class="form-control" id="eventName"
+                                            placeholder="Enter Event Name ..." formControlName="subject">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="color" id="favcolor" name="favcolor" formControlName="colorCode">
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-sm-3">
@@ -34,7 +50,9 @@
                                 </div>
                             </div>
                             <div class="row m-1">
-                                <textarea name="descrption" id="descrption" class="form-control" placeholder="Description....." cols="30" rows="10" formControlName="descrption"></textarea>
+                                <textarea name="descrption" id="descrption" class="form-control"
+                                    placeholder="Description....." cols="30" rows="10"
+                                    formControlName="descrption"></textarea>
                             </div>
                         </div>
                     </form>
