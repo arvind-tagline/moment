@@ -52,4 +52,4 @@
         </table>
     </ng-template> -->
 </ejs-schedule>
-<app-modal-form *ngIf="showPromoModal" (showModal)="showPromoModal" (showDrawer)="onShowDrawer($event)"></app-modal-form>
+<app-modal-form *ngIf="showPromoModal" (showModal)="showPromoModal" (showDrawer)="onShowDrawer($event)" (formDate)="getFormData($event)"></app-modal-form>

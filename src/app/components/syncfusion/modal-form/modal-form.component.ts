@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ClosePopupService } from 'src/app/Service/close-popup.service';
 
 @Component({
@@ -16,20 +16,17 @@ export class ModalFormComponent implements OnInit {
   public teamFormData: any;
   public isDisableForm: boolean = false;
   public showPromoModal!: boolean;
-  public popUpForm!:FormGroup;
-  public colorCodes = [
-    '#eb4034','#9c362f','#dbaf46','#e3a30b',
-    '#aaed53','#8bf007'
-  ];
+  public popUpForm!: FormGroup;
+  
   constructor(private colsePopup: ClosePopupService,private fb:FormBuilder) {
     this.popUpForm = this.fb.group({
-      subject: '',
-      colorCode:'',
-      startDate: '',
-      startTime: '',
-      endDate: '',
-      endTime: '',
-      descrption: ''
+      eventName: ['',[Validators.required]],
+      colorCode:['',[Validators.required]],
+      startDate: ['',[Validators.required]],
+      startTime: ['',[Validators.required]],
+      endDate: ['',[Validators.required]],
+      endTime: ['',[Validators.required]],
+      descrption: ['',[Validators.required]]
     });
    }
   
@@ -53,5 +50,9 @@ export class ModalFormComponent implements OnInit {
       this.showDrawer.emit(this.showModal);
       this.colsePopup.disablePromo = false;
     }
+  }
+
+  get fControl(){
+    return this.popUpForm.controls;
   }
 }

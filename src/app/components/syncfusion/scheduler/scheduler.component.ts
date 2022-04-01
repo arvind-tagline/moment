@@ -101,7 +101,7 @@ export class SchedulerComponent implements OnInit {
     if (args.requestType === 'toolbarItemRendering') {
       const exportItem: any = {
         align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-print',
-        text: 'Print', cssClass: 'e-excel-export', click: this.onPrintClick.bind(this)
+        text: 'Print', cssClass: 'e-print', click: this.onPrintClick.bind(this)
       };
       args.items.push(exportItem);
     }

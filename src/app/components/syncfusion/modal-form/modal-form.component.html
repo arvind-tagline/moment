@@ -24,10 +24,16 @@
                                 <div class="row">
                                     <div class="col-sm-11">
                                         <input type="text" class="form-control" id="eventName"
-                                            placeholder="Enter Event Name ..." formControlName="subject">
+                                            placeholder="Enter Event Name ..." formControlName="eventName">
+                                            <div class="text-danger mt-2" *ngIf="fControl['eventName'].touched && fControl['eventName'].errors?.['required']">
+                                                Event name is required.
+                                            </div>
                                     </div>
                                     <div class="col-sm-1">
                                         <input type="color" id="favcolor" name="favcolor" formControlName="colorCode">
+                                        <div class="text-danger mt-2" *ngIf="fControl['colorCode'].touched && fControl['colorCode'].errors?.['required']">
+                                            Select BGC
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -35,29 +41,44 @@
                                 <div class="mb-3 col-sm-3">
                                     <label for="startDate" class="form-label">START DATE</label>
                                     <input type="date" class="form-control" id="startDate" formControlName="startDate">
+                                    <div class="text-danger mt-2" *ngIf="fControl['startDate'].touched && fControl['startDate'].errors?.['required']">
+                                            Select start date.
+                                        </div>
                                 </div>
                                 <div class="mb-3 col-sm-3">
                                     <label for="startTime" class="form-label">START TIME</label>
                                     <input type="time" class="form-control" id="startTime" formControlName="startTime">
+                                    <div class="text-danger mt-2" *ngIf="fControl['startTime'].touched && fControl['startTime'].errors?.['required']">
+                                            Select start time.
+                                        </div>
                                 </div>
                                 <div class="mb-3 col-sm-3">
                                     <label for="endDate" class="form-label">END DATE</label>
                                     <input type="date" class="form-control" id="endDate" formControlName="endDate">
+                                    <div class="text-danger mt-2" *ngIf="fControl['endDate'].touched && fControl['endDate'].errors?.['required']">
+                                            Select end date.
+                                        </div>
                                 </div>
                                 <div class="mb-3 col-sm-3">
                                     <label for="endTime" class="form-label">END TIME</label>
                                     <input type="time" class="form-control" id="endTime" formControlName="endTime">
+                                    <div class="text-danger mt-2" *ngIf="fControl['endTime'].touched && fControl['endTime'].errors?.['required']">
+                                            Select end time.
+                                        </div>
                                 </div>
                             </div>
                             <div class="row m-1">
                                 <textarea name="descrption" id="descrption" class="form-control"
                                     placeholder="Description....." cols="30" rows="10"
                                     formControlName="descrption"></textarea>
+                                    <div class="text-danger mt-2" *ngIf="fControl['descrption'].touched && fControl['descrption'].errors?.['required']">
+                                       Please write some descrption about event.
+                                    </div>
                             </div>
                         </div>
                     </form>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+                        <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="!popUpForm.valid">Save</button>
                     </div>
                 </div>
             </div>

@@ -73,7 +73,7 @@ export class CustomModalComponent implements OnInit {
     const endDateAndTime = `${e.endDate} ${e.endTime}`;
     const formData = {
       Id: this.scheduleData.length + 1,
-      Subject: e.subject,
+      Subject: e.eventName,
       descrption: e.descrption,
       CategoryColor:e.colorCode,
       StartTime: new Date(startDateAndTime),
