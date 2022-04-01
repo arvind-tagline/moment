@@ -1,0 +1,111 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand text-danger fw-bold">MOMENTJS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">{{time}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="m-3">
+    <div class="card m-2">
+        <p>Ex:- moment('2001-12-03').format('LL');</p>
+        <p>O/T :- LL Format:- {{formatLL}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:- moment().format('MMMM');</p>
+        <p>O/T :- Month with format:- {{month}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:- moment().format('YY');</p>
+        <p>O/T :- Last 2 Digites of Year:- {{day}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:- newDate = new Date();</p>
+        <p>O/T :- Simple New Date:- {{newDate}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:- moment().format('LLL');</p>
+        <p>O/T :- Moment With DateAndTime:- {{newMoment}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:- moment('12-25-2021', ["MM-DD-YYYY" ,"DD-MM-YYYY"]);</p>
+        <p>O/T :- Check Date Formate :- {{dateWith2Format}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:- moment(this.newDate).format('LLL');</p>
+        <p>O/T :- Date Function With MomentFormate :- {{newDateWithFormate}}</p>
+    </div>
+    <label>Input With Date Format YYYY-MM-DD HH:mm </label>
+    <input type="datetime-local" [(ngModel)]="date" /><br>
+    Simple:- {{date}}<br>
+    Date Input :- <input type="date" />
+    Time Input :- <input type="time" />
+    <div class="card m-2">
+        <p>Ex:- moment([2012]);</p>
+        <p>O/T :- Format Array Value :- {{dateArray}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:- moment("/Date(1198908717056-0700)/").format('LLL');</p>
+        <p>O/T :- Format Miliseconds to DateAndTime :- {{second}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:-moment([2012, 0, 31]).month(1).format("YYYY-MM-DD");</p>
+        <p>O/T :- It Give month according to month parameters :- {{returnMonth}}</p>
+    </div>
+    <div class="card m-2">
+        <p>Ex:- moment([2007, 0, 29]).toNow();</p>
+        <p>O/T :- Give Date Duration{{checkDateOld}}</p>
+    </div>
+    <div class="card m-2  text-danger">
+        <p>Ex:- moment([2022, 3, 30]).format('dddd');</p>
+        <p>O/T :- Give Day {{getDay}}</p>
+    </div>
+    <div class="card m-2">
+        <p>fromDate = moment([2021, 11, 6]);
+            toDate = moment(new Date());</p>
+        <p>O/T :- Different between fromDate and toDate :- {{diffr}}</p>
+    </div>
+    <div class="card m-2">
+        <p>moment('2022-03-30').format('dddd');</p>
+        <p>O/T :- Get Day Simple Way :- {{getDaySimple}}</p>
+    </div>
+    <div class="card m-2">
+        <p>moment('2010-10-20').isSame('2010-12-31', 'year');</p>
+        <p>O/T :- Check Both date is same or not :- {{yesValue}} , both date is same.</p>
+    </div>
+    <!-- <div class="card m-2">
+        <p>Custom set Months</p>
+        <p>O/T :- Get Custom Months:- {{month}} </p>
+    </div> -->
+    <div class="card m-2">
+        <p>moment.duration(2, "minutes").humanize()</p>
+        <p>O/T :- Message:- {{showMessage}} .</p>
+    </div>
+    <div class="card m-2">
+        <p>moment.duration(5 ,'hour').subtract(1, 'hour');</p>
+        <p>O/T :- Message:- {{substractHour}} </p>
+    </div>
+    <div class="row">
+        <div class="card col-sm-3 justify-content-center">
+            <div class="m-3">
+                <input type="text" #checkWeek> <br>
+                <span *ngIf="getYear">{{getYear}} in this year {{getWeekInYear}} weeks.</span>
+            </div>
+            <div class="m-3">
+                <button (click)="getWeek(checkWeek)" class="btn btn-outline-primary">Get Week In A Year</button>
+            </div>
+        </div>
+    </div>
+</div>

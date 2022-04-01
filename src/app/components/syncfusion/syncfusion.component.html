@@ -1,0 +1,46 @@
+<div class="row d-flex">
+    <div class="col-sm-2">
+        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'dropdown'">DropDownList</button>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'calendar'">Calendar</button>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'scheduler'">Scheduler</button>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'schedulerWithYear'">SchedulerTimelineYear</button>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'customModal'">Custom Modal</button>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'dragAndDrop'">Drag And Drop</button>
+    </div>
+</div>
+
+
+
+
+<div class="m-3">
+    <div class="col-sm-3">
+        <ng-container *ngIf="currentSelected === 'dropdown'">
+            <app-dropdown></app-dropdown>
+        </ng-container>
+        <ng-container *ngIf="currentSelected === 'calendar'">
+            <app-calendar></app-calendar>
+        </ng-container>
+    </div>
+    <ng-container *ngIf="currentSelected === 'scheduler'">
+        <app-scheduler></app-scheduler>
+    </ng-container>
+    <ng-container *ngIf="currentSelected === 'schedulerWithYear'">
+        <app-scheduler-year-view></app-scheduler-year-view>
+    </ng-container>
+    <ng-container *ngIf="currentSelected === 'customModal'">
+        <app-custom-modal></app-custom-modal>
+    </ng-container>
+    <ng-container *ngIf="currentSelected === 'dragAndDrop'">
+        <app-drag-and-drop></app-drag-and-drop>
+    </ng-container>
+</div>
