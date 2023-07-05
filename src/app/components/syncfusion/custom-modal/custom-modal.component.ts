@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { EventSettingsModel, ScheduleComponent } from '@syncfusion/ej2-angular-schedule';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-custom-modal',
@@ -38,16 +39,18 @@ export class CustomModalComponent implements OnInit {
     dataSource: this.scheduleData
   };
 
-  constructor() { }
+  constructor(private toaster: ToastrService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.toaster.success('Custom Modal Open');
+   }
 
   public onPopupClose() {
     this.startDate;
     this.endDate;
   }
 
-  // Modal close
+  // For set background color start
   public onEventRendered(args: any): void {
     const categoryColor: string = args.data.CategoryColor as string;
     if (!args?.element || !categoryColor) {
@@ -56,6 +59,7 @@ export class CustomModalComponent implements OnInit {
       args.element.style.backgroundColor = categoryColor;
     }
   }
+  // For set background color end
 
   public onShowDrawer(e: boolean):boolean {
     return this.showPromoModal = false;

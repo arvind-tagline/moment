@@ -1,9 +1,15 @@
-<div class="row d-flex">
-  <div class="col-sm-2">
-    <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'moment'">Moment</button>
+<div class="d-flex">
+  <div class="col-sm-2 mx-1">
+    <button ejs-button class="m-2 w-100" (click)="currentSelected = 'moment'" [isPrimary]="true">Moment</button>
   </div>
-  <div class="col-sm-2">
-    <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'syncfusion'">Syncfusion</button>
+  <div class="col-sm-2 mx-1">
+    <button ejs-button class="m-2 w-100" (click)="currentSelected = 'syncfusion'" [isPrimary]="true">Syncfusion</button>
+  </div>
+  <div class="col-sm-2 mx-1">
+    <button ejs-button class="m-2 w-100" (click)="currentSelected = 'scroll'" [isPrimary]="true">Scroll</button>
+  </div>
+  <div class="col-sm-2 mx-1">
+    <button ejs-button class="m-2 w-100" (click)="currentSelected = 'Template'" [isPrimary]="true">Template Form</button>
   </div>
 </div>
 
@@ -13,6 +19,12 @@
   </ng-container>
   <ng-container *ngIf="currentSelected === 'syncfusion'">
     <app-syncfusion></app-syncfusion>
+  </ng-container>
+  <ng-container *ngIf="currentSelected === 'scroll'">
+    <app-loaddataonscroll></app-loaddataonscroll>
+  </ng-container>
+  <ng-container *ngIf="currentSelected === 'Template'">
+    <app-templet-form></app-templet-form>
   </ng-container>
 </div>
 <router-outlet></router-outlet>

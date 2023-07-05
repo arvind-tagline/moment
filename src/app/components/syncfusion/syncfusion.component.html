@@ -1,21 +1,30 @@
 <div class="row d-flex">
     <div class="col-sm-2">
-        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'dropdown'">DropDownList</button>
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'dropdown'">DropDownList</button>
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'calendar'">Calendar</button>
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'calendar'">Calendar</button>
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'scheduler'">Scheduler</button>
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'scheduler'">Scheduler</button>
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'schedulerWithYear'">SchedulerTimelineYear</button>
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'schedulerWithYear'">SchedulerTimelineYear</button>
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'customModal'">Custom Modal</button>
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'customModal'">Custom Modal</button>
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-primary m-2 w-100" (click)="currentSelected = 'dragAndDrop'">Drag And Drop</button>
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'dragAndDrop'">Drag And Drop</button>
+    </div>
+    <div class="col-sm-2">
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'treeview'" [isPrimary]="true">TreeView</button>
+    </div>
+    <div class="col-sm-2">
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'quill'" [isPrimary]="true">Quill Editer</button>
+    </div>
+    <div class="col-sm-2">
+        <button ejs-button cssClass="e-info" class="m-2 w-100" (click)="currentSelected = 'dualListBox'" [isPrimary]="true">Dual list Box</button>
     </div>
 </div>
 
@@ -39,5 +48,14 @@
     </ng-container>
     <ng-container *ngIf="currentSelected === 'dragAndDrop'">
         <app-drag-and-drop></app-drag-and-drop>
+    </ng-container>
+    <ng-container *ngIf="currentSelected === 'treeview'">
+        <app-treegrid-view></app-treegrid-view>
+    </ng-container>
+    <ng-container *ngIf="currentSelected === 'quill'">
+        <app-quill-editer></app-quill-editer>
+    </ng-container>
+    <ng-container *ngIf="currentSelected === 'dualListBox'">
+        <app-duaillistbox></app-duaillistbox>
     </ng-container>
 </div>

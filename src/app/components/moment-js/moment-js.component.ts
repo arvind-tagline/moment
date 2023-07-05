@@ -14,7 +14,7 @@ export class MomentJsComponent implements OnInit {
   public finalDate: any;
   public formatLL = moment('2001-12-03').format('LL');
   public month = moment().format('MMMM');
-  public time = moment().format('MMMM Do YYYY, h:mm:ss a');
+  public time:any = moment().format('h:mm:ss a');
   public day = moment().format('YY');
 
   public newDate = new Date();
@@ -54,6 +54,7 @@ export class MomentJsComponent implements OnInit {
     years: 2
   });
 
+ 
   public months: any;
 //get difference two dates
   public fromDate = moment([2021, 11, 6]);
@@ -68,7 +69,9 @@ export class MomentJsComponent implements OnInit {
     } else {
       this.yesValue = 'No';
     }
-
+    setInterval(()=>{
+      this.time = moment().format('h:mm:ss a');
+    },1000)
   }
 
   getWeek(checkWeek: any) {

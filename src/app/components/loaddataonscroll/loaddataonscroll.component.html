@@ -1,0 +1,24 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+        <ng-container *ngIf="datas?.length else noDataFound">
+            <ul class="timeline" appScrollItem (scrollingFinished)="onScrollingFinished()">
+                <li class="timeline-item" *ngFor="let log of datas">
+                    <span class="timeline-point timeline-point-indicator"
+                        [ngClass]="log.status === 'success' ? 'timeline-point-success' : 'timeline-point-danger'"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                            <h6>{{log.action | titlecase}}&nbsp;{{log.actionType}}</h6>
+                            <span class="timeline-event-time">{{log.timeSpan}}</span>
+                        </div>
+                        <p>{{log.message}}</p>
+                    </div>
+                </li>
+            </ul>
+        </ng-container>
+        <ng-template #noDataFound>
+            <div class="no-data-found">
+                <h3 class="text-center">No data found</h3>
+            </div>
+        </ng-template>
+    </div>
+</div>  

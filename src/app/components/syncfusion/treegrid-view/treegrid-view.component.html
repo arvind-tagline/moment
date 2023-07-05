@@ -1,0 +1,32 @@
+<button ejs-button cssClass="e-primary"(click)="getNextValue()" iconCss="e-btn-sb-icon e-prev-icon">Next Month</button>
+
+<ejs-treegrid #treegrid [dataSource]="data" [treeColumnIndex]="1" [sortSettings]="sortSettings" [allowSorting]="true"
+    childMapping="subtasks" [allowPaging]="true" [pageSettings]="pageSettings" [toolbar]='toolbar'>
+    <e-columns>
+        <e-column field="id" headerText="Task Id" textAlign="Left" width="180"></e-column>
+        <e-column field="name" headerText="Task Name" textAlign="Left" width="180"></e-column>
+        <e-column headerText='Start Date' field='from_date' [allowEditing]='false' textAlign="center" minWidth=150
+            maxWidth=200 [allowFiltering]='false'>
+            <ng-template #template let-data>
+                <ejs-datepicker [value]='data.from_date' placeholder='Enter date'>
+                </ejs-datepicker>
+            </ng-template>
+        </e-column>
+        <e-column headerText='Start Time' field='start_time' format.type="time" [allowEditing]='false'
+            textAlign="center" minWidth=120 maxWidth=150>
+            <ng-template #template let-data>
+                <ejs-timepicker [value]='data.start_time' format="h:mm a" [step]='30'>
+                </ejs-timepicker>
+            </ng-template>
+        </e-column>
+        <e-column headerText='End Time' field='end_time' format.type="time" [allowEditing]='false'
+            textAlign="center" minWidth=120 maxWidth=150>
+            <ng-template #template let-data>
+                <ejs-timepicker [value]='data.end_time' format="h:mm a" [step]='30'>
+                </ejs-timepicker>
+            </ng-template>
+        </e-column>
+    </e-columns>
+</ejs-treegrid>
+
+<!-- <ejs-timepicker [value]='dateValue' [min]='minValue' [max]='maxValue'></ejs-timepicker> -->

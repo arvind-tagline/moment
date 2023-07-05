@@ -1,7 +1,7 @@
 <!-- Hide First popup[showQuickInfo]="false" -->
 <ejs-schedule #scheduleObj width='100%' cssClass='schedule-excel-export' height='75%' [selectedDate]="selectedDate" (eventRendered)="onEventRendered($event)"
-    [showQuickInfo]="false" [rowAutoHeight]='rowAutoHeight' [eventSettings]="eventSettings"
-    (cellClick)="onSelectCell($event)" (select)="onSelect($event)" data-bs-toggle="modal" (actionBegin)="onActionBegin($event)">
+    [showQuickInfo]="false" [rowAutoHeight]='rowAutoHeight' [allowResizing]="true" [allowDragAndDrop]="true" [eventSettings]="eventSettings"
+    (select)="onSelectCell($event)" data-bs-toggle="modal" (actionBegin)="onActionBegin($event)">
     <e-views>
         <e-view option='TimelineYear' displayName='Horizontal Timeline Year' colorField="CategoryColor" isSelected=true>
         </e-view>
@@ -52,4 +52,4 @@
         </table>
     </ng-template> -->
 </ejs-schedule>
-<app-modal-form *ngIf="showPromoModal" (showModal)="showPromoModal" (showDrawer)="onShowDrawer($event)" (formDate)="getFormData($event)"></app-modal-form>
+<app-modal-form *ngIf="showPromoModal" (showModal)="showPromoModal" (showDrawer)="onShowDrawer($event)" [select]="argsData" (formDate)="getFormData($event)"></app-modal-form>
